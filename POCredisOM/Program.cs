@@ -9,6 +9,8 @@ var provider = new RedisConnectionProvider("redis://localhost:6379");
 var redis = provider.Connection;
 var reports = provider.RedisCollection<Report>();
 
+//var result = await ReportGenerator.QueryReportsByCity("Berlin");
+
 //await WipeAllReportKeysAsync();
 
 // Create Reports for testing. Comment below line if you don't want to generate new reports.

@@ -29,5 +29,6 @@ public class Report
     [Indexed]
     public string[] Tags { get; set; }
 
+    [Indexed]
     public Location Location { get; set; }
 }

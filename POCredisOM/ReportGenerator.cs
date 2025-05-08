@@ -245,4 +245,21 @@ public static class ReportGenerator
             $"[Redis OM] Updated CreatedAt for ID: {id}. Time: {stopwatch.ElapsedMilliseconds} ms"
         );
     }
+
+    public static async Task<List<Report>> QueryReportsByCity(string city)
+    {
+        var provider = new RedisConnectionProvider("redis://localhost:6379");
+        var reports = provider.RedisCollection<Report>();
+
+        var stopwatch = Stopwatch.StartNew();
+
+        var result = reports.Where(r => r.Location.City == city).ToList();
+
+        stopwatch.Stop();
+        Console.WriteLine(
+            $"[Redis OM] Found {result.Count} reports in city '{city}'. Time: {stopwatch.ElapsedMilliseconds} ms"
+        );
+
+        return result;
+    }
 }
