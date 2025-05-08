@@ -41,6 +41,7 @@ To query by nested values, those properties must be **flattened** into top-level
 
 ---
 
+(Note: To run this you need a docker and run the following to use redis docker run -d -p 6379:6379 -p 4001:8001 --name redis-stack redis/redis-stack:latest)
 
 ### 🧪 Additional Run – 500K Reports (After System Idle)
 
