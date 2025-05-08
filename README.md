@@ -40,3 +40,19 @@ As a result, LINQ queries like `Where(r => r.Location.City == "Berlin")` will **
 To query by nested values, those properties must be **flattened** into top-level fields.
 
 ---
+
+
+### 🧪 Additional Run – 500K Reports (After System Idle)
+
+A follow-up benchmark was run after allowing the system to rest, confirming consistency of previous observations.
+
+**Key Metrics:**
+
+| Operation            | Redis OM            | Classic Redis       |
+| -------------------- | ------------------- | ------------------- |
+| Query (Title filter) | 1.97 sec            | 28 ms               |
+| Batch Update         | 8.9 sec (10K items) | 4.7 sec (50K items) |
+| GetById              | 3 ms                | 1 ms                |
+| UpdateById           | 2 ms                | 1.5 sec             |
+| Memory Peak          | \~931 MB            | \~1200 MB           |
+
